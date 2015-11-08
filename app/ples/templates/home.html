@@ -2,7 +2,7 @@
 {% load ples staticfiles %}
 
 {% block 'content' %}
-<h1>On-line rezervace míst na skautský ples</h1>
+<h1 class="col-md-10 col-md-offset-1">On-line rezervace míst</h1>
 <form action="" method="post" class="form-horizontal">{% csrf_token %}
     {% with item=form.name %} {% include 'item.html' %}{% endwith %}
     {% with item=form.phone %}{% include 'item.html' %}{% endwith %}
@@ -36,7 +36,7 @@
     </div>
 
     {% with room='S' %}
-    <h2>Sál</h2>
+    <div class="row"><h2 class="col-md-10 col-md-offset-1">Sál</h2></div>
     <div class="room" id="S">
         <table class="board" id="S1">
             <tr><th rowspan="2">S1</th>{% for x in 'xxxxx' %}{% seat room 1 %}{% endfor %}</tr>
@@ -73,7 +73,7 @@
     {% endwith %}
 
     {% with room='G' %}
-    <h2>Galerie</h2>
+    <div class="row"><h2 class="col-md-10 col-md-offset-1">Galerie</h2></div>
     <div class="room" id="G">
         {% for table in '1 2 3 4'|split %}
         <table class="board" id="{{ room }}{{ table }}">

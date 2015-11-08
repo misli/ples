@@ -13,7 +13,7 @@ from .models import Reservation, Seat, ReservationSeat
 
 class ReservationCreateView(CreateView):
     model       = Reservation
-    success_url = '/'
+    success_url = '/hotovo/'
 
     def get_form(self, *args, **kwargs):
         form = super(ReservationCreateView, self).get_form(*args, **kwargs)
