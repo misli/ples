@@ -1,0 +1,3 @@
+<td id="seat-{{ seat.id }}" class="seat {% if variant %}free{% else %}reserved{% endif %}{% if variant.value == 'O' %} other{% elif variant.value == 'S' %} student{% endif %}">
+{{ variant }}
+</td>

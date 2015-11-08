@@ -1,0 +1,33 @@
+{% load ples staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="cs-CZ">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>On-line rezervace míst na skautský ples</title>
+        <link rel="stylesheet" type="text/css" media="all"   href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" media="all"   href="{% static 'style.css' %}" />
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="header-background">
+                <div id="header">
+                    <img src="{% static 'heading.png' %}" alt=""/>
+                </div>
+            </div>
+            <div id="content-background">
+                <div class="row">
+                    <div id="content" class="col-md-8 col-md-offset-2">
+                        {% block 'content' %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{% static 'jquery-1.11.1/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bootstrap-3.3.4-dist/js/bootstrap.min.js' %}"></script>
+        {% block 'js' %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,23 @@
+# Ples.
+# Copyright (C) 2015 Jakub Dornak <jakub.dornak@misli.cz>
+# This file is distributed under the same license as the ples package.
+# Jakub Dornak <jakub.dornak@misli.cz>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-08 01:46+0100\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/ples/templates/404.html:4 app/ples/templates/404.html.py:5
+msgid "Page not found"
+msgstr "Stránka nenalezena"
+
+#: app/ples/templates/500.html:4 app/ples/templates/500.html.py:5
+msgid "Unhandled Exception"
+msgstr "Neočekávaná chyba"

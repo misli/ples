@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load ples staticfiles %}
+
+{% block 'content' %}
+<h1>On-line rezervace míst na skautský ples</h1>
+<form action="" method="post" class="form-horizontal">{% csrf_token %}
+    {% with item=form.name %} {% include 'item.html' %}{% endwith %}
+    {% with item=form.phone %}{% include 'item.html' %}{% endwith %}
+    {% with item=form.email %}{% include 'item.html' %}{% endwith %}
+    <div class="row form-group">
+        <label class="control-label col-md-3">
+            Studenti
+        </label>
+        <div class="col-md-6">
+            <span class="seat free student"></span>
+            <span id="num-student"></span> x 100 = <span id="sum-student"></span>Kč
+        </div>
+    </div>
+    <div class="row form-group">
+        <label class="control-label col-md-3">
+            Ostatní
+        </label>
+        <div class="col-md-4">
+            <span class="seat free other"></span>
+            <span id="num-other"></span> x 100 = <span id="sum-other"></span>Kč
+        </div>
+    </div>
+    <div class="row form-group">
+        <label class="control-label col-md-3">
+            Celkem
+        </label>
+        <div class="col-md-4">
+            <span id="num-all"></span> / <span id="sum-all"></span>Kč
+            <button class="btn btn-primary" type="submit">Rezervovat</button>
+        </div>
+    </div>
+
+    {% with room='S' %}
+    <h2>Sál</h2>
+    <div class="room" id="S">
+        <table class="board" id="S1">
+            <tr><th rowspan="2">S1</th>{% for x in 'xxxxx' %}{% seat room 1 %}{% endfor %}</tr>
+            <tr>                       {% for x in 'xxxxx' %}{% seat room 1 %}{% endfor %}</tr>
+        </table>
+
+        {% for table in '2 3 4 5 6'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            <tr><th rowspan="2">{{ room }}{{ table }}</th>{% for x in 'xxxx' %}{% seat room table %}{% endfor %}</tr>
+            <tr>                                          {% for x in 'xxxx' %}{% seat room table %}{% endfor %}</tr>
+        </table>
+        {% endfor %}
+
+        {% for table in '7 8 9'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            <tr><th colspan="2">{{ room }}{{ table }}</th></tr>
+            {% for x in 'xxxx' %}
+            <tr>{% seat room table %} {% seat room table %}</tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+
+        {% for table in '10 11 12 13 14 15 16 17'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            <tr>{% seat room table %} {% seat room table %} <th rowspan="2">{{ room }}{{ table }}</th></tr>
+            <tr>{% seat room table %} {% seat room table %}</table>
+        {% endfor %}
+
+        <table class="board" id="S18">
+            <tr>{% for x in 'xxxxx' %}{% seat room 18 %}{% endfor %}<th rowspan="2">S18</th></tr>
+            <tr>{% for x in 'xxxxx' %}{% seat room 18 %}{% endfor %}                        </tr>
+        </table>
+    </div>
+    {% endwith %}
+
+    {% with room='G' %}
+    <h2>Galerie</h2>
+    <div class="room" id="G">
+        {% for table in '1 2 3 4'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            {% for x in 'xxxxx' %}<tr>{% seat room table %} {% seat room table %}</tr>{% endfor %}
+            <tr><th colspan="2">G1</th></tr>
+        </table>
+        {% endfor %}
+
+        {% for table in '5 6 7 8'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            <tr><th rowspan="2">{{ room }}{{ table }}</th>{% seat room table %}</tr><tr>{% seat room table %}</tr>
+        </table>
+        {% endfor %}
+
+        <table class="board" id="G9">
+            <tr><th colspan="2">G9</tr><tr>{% seat room 9 %} {% seat room 9 %}</tr>
+        </table>
+
+        {% for table in '10 11'|split %}
+        <table class="board" id="{{ room }}{{ table }}">
+            <tr><th colspan="2">{{ room }}{{ table }}</tr>
+            {% for x in 'xxxx' %}<tr>{% seat room table %} {% seat room table %}</tr>{% endfor %}
+        </table>
+        {% endfor %}
+    </div>
+    {% endwith %}
+</form>
+{% endblock %}
+
+{% block 'js' %}
+<script type="text/javascript">
+    calculate = function(){
+        num_student = $('td.free.student').length;
+        num_other   = $('td.free.other').length;
+        $('#num-student').html(num_student);
+        $('#sum-student').html(num_student * 100);
+        $('#num-other').html(num_other);
+        $('#sum-other').html(num_other * 120);
+        $('#num-all').html(num_student + num_other);
+        $('#sum-all').html(num_student * 100 + num_other * 120);
+    }
+    calculate();
+
+    $('td.free').click(function(){
+        input       = $('#id_' + this.id + '-variant');
+        if ($(this).hasClass('other')) {
+            $(this).removeClass('other');
+            $(this).addClass('student');
+            input.val('S');
+        } else if ($(this).hasClass('student')) {
+            $(this).removeClass('student');
+            input.val('');
+        } else {
+            $(this).addClass('other');
+            input.val('O');
+        }
+        calculate();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,6 @@
+Přijali jsme Vaši rezervaci na Skautský ples ve stylu MAFIE.
+
+Rezervovaná místa:
+{% for rs in reservation.seats.all %}{{ rs.seat }} - {{ rs.price }}Kč ({{ rs.variant_name }})
+{% endfor %}
+Celkem {{ reservation.price }}Kč

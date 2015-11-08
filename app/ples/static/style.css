@@ -1,0 +1,117 @@
+html, body {
+    background: #000;
+}
+
+#header-background {
+    margin-top: 0;
+    background: url(./header-background.jpg);
+}
+
+#header {
+    padding: 15px;
+    height: 450px;
+    background: url(./header.jpg) no-repeat right;
+}
+
+#content {
+    margin-top: -100px;
+    margin-bottom: 50px;
+    background: #eee;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+#content-background {
+    background: url(./content-background.jpg);
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+}
+
+span.seat {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+td.seat.free,
+td.seat.other,
+td.seat.student {
+    cursor: pointer;
+}
+
+.seat.reserved      { background: #f88; }
+
+.seat.free          { background: #8f8; }
+.seat.free.other    { background: blue; }
+.seat.free.student  { background: yellow; }
+td.seat.free:hover          { background: linear-gradient(blue, #8f8, #8f8); }
+td.seat.free.other:hover    { background: linear-gradient(yellow, blue, blue); }
+td.seat.free.student:hover  { background: linear-gradient(#8f8, yellow, yellow); }
+
+
+th {
+    padding: 5px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.board {
+    position: absolute;
+}
+
+.room {
+    position: relative;
+    border: 2px solid black;
+    background: white;
+    margin: 15px auto;
+}
+
+#G { width: 550px;  height: 750px; }
+
+#G1 { top: 20px;    left: 60px; }
+#G2 { top: 20px;    left: 180px; }
+#G3 { top: 20px;    left: 300px; }
+#G4 { top: 20px;    left: 420px; }
+
+#G5  { top: 240px;  left: 400px; }
+#G6  { top: 320px;  left: 400px; }
+#G7  { top: 400px;  left: 400px; }
+#G8  { top: 480px;  left: 400px; }
+     
+#G9  { top: 640px;  left: 420px; }
+
+#G10 { top: 570px;  left: 280px; }
+#G11 { top: 570px;  left: 140px; }
+
+
+#S { width: 600px;  height: 900px; }
+
+#S1  { top: 20px;   left: 400px; }
+#S2  { top: 120px;  left: 430px; }
+#S3  { top: 220px;  left: 430px; }
+#S4  { top: 320px;  left: 430px; }
+#S5  { top: 420px;  left: 430px; }
+#S6  { top: 520px;  left: 430px; }
+
+#S7  { top: 670px;  left: 430px; }
+#S8  { top: 670px;  left: 310px; }
+#S9  { top: 670px;  left: 190px; }
+
+#S10 { top: 820px;  left: 20px; }
+#S11 { top: 720px;  left: 20px; }
+#S12 { top: 620px;  left: 20px; }
+#S13 { top: 520px;  left: 20px; }
+#S14 { top: 420px;  left: 20px; }
+#S15 { top: 320px;  left: 20px; }
+#S16 { top: 220px;  left: 20px; }
+#S17 { top: 120px;  left: 20px; }
+
+#S18 { top: 20px;   left: 20px; }
+
+
+
+
