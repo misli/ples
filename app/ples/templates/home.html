@@ -103,7 +103,7 @@
         {% for table in '1 2 3 4'|split %}
         <table class="board" id="{{ room }}{{ table }}">
             {% for x in 'xxxxx' %}<tr>{% seat room table %} {% seat room table %}</tr>{% endfor %}
-            <tr><th colspan="2">G1</th></tr>
+            <tr><th colspan="2">{{ room }}{{ table }}</th></tr>
         </table>
         {% endfor %}
 
