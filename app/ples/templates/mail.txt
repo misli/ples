@@ -1,5 +1,12 @@
 Přijali jsme Vaši rezervaci na Skautský ples ve stylu MAFIE.
 
+Termín: 8. leden 2016 v 20:00
+Místo konání: Zámecký skleník Boskovice
+
+Jméno: {{ reservation.name }}
+Telefon: {{ reservation.phone }}
+E-mail: {{ reservation.email }}
+
 Rezervovaná místa:
 {% for rs in reservation.seats.all %}{{ rs.seat }} - {{ rs.price }}Kč ({{ rs.variant_name }})
 {% endfor %}

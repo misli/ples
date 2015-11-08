@@ -2,8 +2,29 @@
 {% load ples staticfiles %}
 
 {% block 'content' %}
-<h1 class="col-md-10 col-md-offset-1">On-line rezervace míst</h1>
+<h1 class="col-md-10 col-md-offset-1">On-line rezervace na Skautský ples</h1>
+<p  class="col-md-10 col-md-offset-1">
+    Tentokráte ve stylu MAFIE - třicátá léta minulého století!<br/>
+    Více informací najdete na
+    <a href="https://www.facebook.com/events/1489710524657356/" target="_blank">FB</a>.
+</p>
 <form action="" method="post" class="form-horizontal">{% csrf_token %}
+    <div class="row form-group">
+        <label class="control-label col-md-3">
+            Termín
+        </label>
+        <div class="col-md-6">
+            <strong class="form-control">8. leden 2016 v 20:00</strong>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label class="control-label col-md-3">
+            Místo konání
+        </label>
+        <div class="col-md-6">
+            <strong class="form-control">Zámecký skleník Boskovice</strong>
+        </div>
+    </div>
     {% with item=form.name %} {% include 'item.html' %}{% endwith %}
     {% with item=form.phone %}{% include 'item.html' %}{% endwith %}
     {% with item=form.email %}{% include 'item.html' %}{% endwith %}
