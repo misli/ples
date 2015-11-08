@@ -116,6 +116,8 @@ th {
 
 #S18 { top: 20px;   left: 20px; }
 
-
+.sign { position: absolute; font-size: 30px; }
+#entrance { top: 0px; left: 260px; }
+#podium { bottom: 0px; left: 250px; }
 
 
