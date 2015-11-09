@@ -102,6 +102,12 @@
     {% with room='G' %}
     <div class="row"><h2 class="col-md-10 col-md-offset-1">Galerie</h2></div>
     <div class="room" id="G">
+        <table id="galery-layout">
+            <tr><td class="stair"></td><td rowspan="16" class="void"></td></tr>
+            {% for x in 'xxxxxxxxxxxxxxx' %}<tr><td class="stair"></td></tr>{% endfor %}
+            <tr class="void"><td class="void"></td><td class="void"></td></tr>
+            <tr><td class="void"></td><td class="balkon"><div class="sign" id="balkon">balkón</div></td></tr>
+        </table>
         {% for table in '1 2 3 4'|split %}
         <table class="board" id="{{ room }}{{ table }}">
             {% for x in 'xxxxx' %}<tr>{% seat room table %} {% seat room table %}</tr>{% endfor %}

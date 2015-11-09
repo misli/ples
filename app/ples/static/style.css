@@ -119,5 +119,36 @@ th {
 .sign { position: absolute; font-size: 30px; }
 #entrance { top: 0px; left: 260px; }
 #podium { bottom: 0px; left: 250px; }
+#balkon { top: 0px; left: 50px; }
 
+#galery-layout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#galery-layout .balkon {
+    position: relative;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    width: 280px;
+    height: 220px;
+}
+
+#galery-layout .stair {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100px;
+    height: 10px;
+}
+
+#galery-layout td.void {
+    background: #eee;
+}
+
+#galery-layout tr.void td.void {
+    height: 120px;
+}
 
