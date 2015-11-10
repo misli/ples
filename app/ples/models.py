@@ -18,9 +18,10 @@ class Reservation(models.Model):
     def __str__(self):
         return self.name
 
-    @property
     def price(self):
         return sum(rs.price for rs in self.seats.all())
+    price.short_description = 'celková cena'
+    price = property(price)
 
 
 

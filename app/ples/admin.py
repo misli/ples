@@ -13,7 +13,7 @@ class ReservationSeatInlineAdmin(admin.TabularInline):
     extra = 0
 
 class ReservationAdmin(admin.ModelAdmin):
-    list_display    = ('created', 'name', 'phone', 'email', 'num_seats', 'paid')
+    list_display    = ('created', 'name', 'phone', 'email', 'num_seats', 'seats_list', 'price', 'paid')
     list_editable   = ('paid',)
     search_fields   = ('name', 'phone', 'email')
     inlines         = (ReservationSeatInlineAdmin,)
@@ -29,6 +29,19 @@ class ReservationAdmin(admin.ModelAdmin):
     def num_seats(self, obj):
         return obj.num_seats
     num_seats.admin_order_field = 'num_seats'
+    num_seats.short_description = 'počet míst'
+
+    def seats_list(self, obj):
+        return '<br />'.join(
+            '{seat} - {price} ({variant})'.format(
+                seat    = rs.seat,
+                price   = rs.price,
+                variant = rs.variant_name,
+            )
+            for rs in obj.seats.all()
+        )
+    seats_list.allow_tags = True
+    seats_list.short_description = 'seznam míst'
 
 admin.site.register(Reservation, ReservationAdmin)
 
