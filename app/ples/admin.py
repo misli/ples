@@ -13,7 +13,8 @@ class ReservationSeatInlineAdmin(admin.TabularInline):
     extra = 0
 
 class ReservationAdmin(admin.ModelAdmin):
-    list_display    = ('created', 'name', 'phone', 'email', 'num_seats')
+    list_display    = ('created', 'name', 'phone', 'email', 'num_seats', 'paid')
+    list_editable   = ('paid',)
     search_fields   = ('name', 'phone', 'email')
     inlines         = (ReservationSeatInlineAdmin,)
 

@@ -13,6 +13,7 @@ class Reservation(models.Model):
     name        = models.CharField('jméno', max_length=100)
     phone       = models.CharField('telefon', max_length=15)
     email       = models.EmailField('e-mail')
+    paid        = models.BooleanField('placeno', default=False)
 
     def __str__(self):
         return self.name
