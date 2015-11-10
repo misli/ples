@@ -3,6 +3,7 @@
 from __future__ import absolute_import, division, generators, nested_scopes, print_function, unicode_literals, with_statement
 
 from django import forms
+from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.template.loader import render_to_string
@@ -47,11 +48,12 @@ class ReservationCreateView(CreateView):
             from_email      = '"Petr Lizna" <petr.lizna@ddmletovice.cz>',
             recipient_list  = (reservation.email,),
         )
-        send_mail(
-            subject         = 'Rezervace míst na Skautský ples ve stylu MAFIE',
-            message         = message,
-            from_email      = reservation.email,
-            recipient_list  = ('"Petr Lizna" <petr.lizna@ddmletovice.cz>',),
-        )
+        if not settings.DEBUG:
+            send_mail(
+                subject         = 'Rezervace míst na Skautský ples ve stylu MAFIE',
+                message         = message,
+                from_email      = reservation.email,
+                recipient_list  = ('"Petr Lizna" <petr.lizna@ddmletovice.cz>',),
+            )
         return response
 
