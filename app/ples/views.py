@@ -13,6 +13,7 @@ from .models import Reservation, Seat, ReservationSeat
 
 class ReservationCreateView(CreateView):
     model       = Reservation
+    fields      = ('name', 'phone', 'email')
     success_url = '/hotovo/'
 
     def get_form(self, *args, **kwargs):
