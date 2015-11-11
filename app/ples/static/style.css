@@ -1,9 +1,6 @@
 html, body {
     background: #000;
-}
-
-p {
-    font-size: 130%;
+    font-size: 15px;
 }
 
 #header-background {
