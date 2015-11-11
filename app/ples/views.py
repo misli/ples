@@ -45,7 +45,7 @@ class ReservationCreateView(CreateView):
         send_mail(
             subject         = 'Rezervace míst na Skautský ples ve stylu MAFIE',
             message         = message,
-            from_email      = '"Petr Lizna" <petr.lizna@ddmletovice.cz>',
+            from_email      = '"Petr Lizna" <Petr.Lizna@gmail.com>',
             recipient_list  = (reservation.email,),
         )
         if not settings.DEBUG:
@@ -53,7 +53,7 @@ class ReservationCreateView(CreateView):
                 subject         = 'Rezervace míst na Skautský ples ve stylu MAFIE',
                 message         = message,
                 from_email      = reservation.email,
-                recipient_list  = ('"Petr Lizna" <petr.lizna@ddmletovice.cz>',),
+                recipient_list  = ('"Petr Lizna" <Petr.Lizna@gmail.com>',),
             )
         return response
 
